@@ -26,6 +26,12 @@ app.get("/users", (req, res) => {
     res.json({"users": users});
 });
 
+app.get("/users/:id", (req,res) => {
+    const id = req.params.id;
+    const user = users.find((user) => user.id === Number(id));
+    res.json({"user":user});
+})
+
 const PORT = 8080;
 
 app.listen(PORT, () => {
