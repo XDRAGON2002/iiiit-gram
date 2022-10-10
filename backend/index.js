@@ -52,9 +52,21 @@ app.put("/users/:id", (req,res) => {
         const userIndex = users.indexOf(user);
         const updatedUser = {...user, ...body};
         users[userIndex] = updatedUser;
-        res.send(updatedUser);
+        res.status(200).send(updatedUser);
     }
 
+})
+
+app.delete("/users/:id", (req,res) => {
+    const userId = req.params.id;
+    const user = users.find((user) => user.id === Number(userId));
+    if(!user) {
+        res.status(404).send(`Account with ID ${userId} not found`);
+    }else{
+        let new_user = users.filter((user) => user.id != userId);
+        user = new_user;
+        res.status(200).send(`Account Deleted!`);
+    }
 })
 
 const PORT = 8080;
