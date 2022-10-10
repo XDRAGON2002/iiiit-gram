@@ -41,6 +41,22 @@ app.post("/users", (req,res) => {
     });
 })
 
+app.put("/users/:id", (req,res) => {
+    const userId = req.params.id;
+    let {name, gender, bio} = req.body;
+    const body = {name,gender,bio};
+    const user = users.find((user) => user.id === Number(userId));
+    if(!user){
+        res.status(404).send(`User with ID ${userId} not found`)
+    }else{
+        const userIndex = users.indexOf(user);
+        const updatedUser = {...user, ...body};
+        users[userIndex] = updatedUser;
+        res.send(updatedUser);
+    }
+
+})
+
 const PORT = 8080;
 
 app.listen(PORT, () => {
