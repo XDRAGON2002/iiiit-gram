@@ -16,7 +16,7 @@ let users = [
         gender: "Male",
         bio: "Loves sleeping"
     }
-]
+];
 
 app.get("/", (req, res) => {
     res.json("Hello World")
@@ -30,6 +30,15 @@ app.get("/users/:id", (req,res) => {
     const id = req.params.id;
     const user = users.find((user) => user.id === Number(id));
     res.json({"user":user});
+})
+
+app.post("/users", (req,res) => {
+    let {id, name, gender, bio} = req.body;
+    const new_user = {id,name,gender,bio};
+    users.push(new_user);
+    res.status(201).json({
+        "users":users
+    });
 })
 
 const PORT = 8080;
