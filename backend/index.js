@@ -9,6 +9,10 @@ app.get("/", (req, res) => {
     res.json("Hello World")
 })
 
+app.get("/users", (req, res) => {
+    res.json({"users": users});
+});
+
 const PORT = 8080;
 
 app.listen(PORT, () => {
