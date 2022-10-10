@@ -9,6 +9,17 @@ app.get("/", (req, res) => {
     res.json("Hello World")
 })
 
+app.post("/users/add", (req, res) => {
+    users.push({
+        name: req.query.name,
+        gender: req.query.gender,
+        bio: req.query.bio,
+    });
+    res.status(201).json({
+        message: "New User Created"
+    })
+})
+
 const PORT = 5000
 
 app.listen(PORT, () => {
