@@ -8,6 +8,9 @@ let users = [{name: "Tom", gender: "Male", bio: "Loves to paint"}, {name: "Jerry
 app.get("/", (req, res) => {
     res.json("Hello World")
 })
+app.get('/users/',(req,res)=>{
+    res.json(users)
+})
 
 const PORT = 8080
 
