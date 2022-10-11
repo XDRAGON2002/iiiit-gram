@@ -11,6 +11,17 @@ app.get("/", (req, res) => {
 app.get('/users/',(req,res)=>{
     res.json(users)
 })
+app.get('/users/:id',(req,res)=>{
+    const {id}=req.params
+    const getUser=users.find((user)=>user.id===Number(id))
+    if(!getUser){
+        return res.status(404).send('User not found')
+    }
+    else{
+        return res.json(getUser)
+    }
+    
+})
 
 const PORT = 8080
 
