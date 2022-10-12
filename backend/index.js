@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 })
 
 app.get('/users/',(req,res)=>{
-        res.json(users)
+    res.json(users)
 })
 
 app.get('/users/:id',(req,res)=>{
