@@ -1,11 +1,8 @@
-import React from "react"
+import React from 'react';
+import { Header } from './Header';
 
 const App = () => {
-    return (
-        <h1>
-            The site development is under progress...
-        </h1>
-    )
-}
+  return <Header />;
+};
 
-export default App
+export default App;
