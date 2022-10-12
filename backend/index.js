@@ -1,6 +1,7 @@
 import express from "express"
 
 const app = express()
+app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
 let users = [{id:1 ,name: "Tom", gender: "Male", bio: "Loves to paint"}, {id:2,name: "Jerry", gender: "Male", bio: "Loves sleeping"}]
@@ -23,6 +24,12 @@ app.get('/users/:id',(req,res)=>{
         return res.json(getUser)
     }
     
+})
+
+app.post('/users/add/',(req,res)=>{
+    const{id,name,gender,bio}=req.body
+    res.status(201).json({id:id,name:name,gender:gender,bio:bio})
+
 })
 
 const PORT = 8080
