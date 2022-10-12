@@ -28,7 +28,7 @@ Thank you for contributing! Have a great time!
 
 ### Setup Backend
 1) In order to run the project backend, cd into the `backend` directory and type `npm i` which will take some time to install all required dependencies.
-2) Then type `npm run start`, and after a few seconds the backend will start on port 5000, and can be accessed by going to `localhost:5000` on your browser.
+2) Then type `npm run start`, and after a few seconds the backend will start on port 8080, and can be accessed by going to `localhost:8080` on your browser.
 3) To run the server in reload mode enabled, type `npm run dev` instead and then any changes made to the server will be instantly reloaded.
 4) In order to close the server press `ctrl+c` in the same terminal/cmd.
 
