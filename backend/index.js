@@ -3,6 +3,8 @@ import express from "express"
 const app = express()
 app.use(express.json())
 
+app.use(express.urlencoded({extended:false}))
+
 let users = [{id:1 ,name: "Tom", gender: "Male", bio: "Loves to paint"}, {id:2,name: "Jerry", gender: "Male", bio: "Loves sleeping"}]
 
 app.get("/", (req, res) => {
@@ -23,6 +25,17 @@ app.get('/users/:id',(req,res)=>{
         return res.json(getUser)
     }
     
+})
+
+app.post('/users/add/',(req,res)=>{
+    let user={
+       id:req.body.id,
+        name:req.body.name,
+        gender:req.body.gender,
+        bio:req.body.bio
+    }
+    users.push(user)
+    res.json(user)
 })
 
 const PORT = 8080
