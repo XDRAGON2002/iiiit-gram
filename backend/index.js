@@ -29,18 +29,13 @@ app.get('/users/:id',(req,res)=>{
 
 app.post('/users/add/',(req,res)=>{
     let user={
-      
        id:req.body.id,
         name:req.body.name,
         gender:req.body.gender,
-        bio:req.body.gender
-
-
+        bio:req.body.bio
     }
-    users.push(req.body)
+    users.push(user)
     res.json(user)
-
-
 })
 
 const PORT = 8080
