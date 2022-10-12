@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 })
 
 app.get('/users/',(req,res)=>{
-    res.json(users)
+        res.json(users)
 })
 
 app.get('/users/:id',(req,res)=>{
@@ -28,8 +28,18 @@ app.get('/users/:id',(req,res)=>{
 })
 
 app.post('/users/add/',(req,res)=>{
-    const{id,name,gender,bio}=req.body
-    res.status(201).json({id:id,name:name,gender:gender,bio:bio})
+    let user={
+      
+       id:req.body.id,
+        name:req.body.name,
+        gender:req.body.gender,
+        bio:req.body.gender
+
+
+    }
+    users.push(req.body)
+    res.json(user)
+
 
 })
 
