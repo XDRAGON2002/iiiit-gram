@@ -35,20 +35,20 @@ router.delete("/delete/:id",(req,res)=>{
 router.put("/update/:id",(req,res)=>{
   const { id } = req.params;
   const userIndex = users.findIndex((user)=>user.id===Number(id));
-  const {name,gen,bio}=req.body;
+  const {name,gender,bio}=req.body;
   if (userIndex===-1) {
     return res.status(404).send("User not found");
   }
-  else if(gen==='Male'||gen==='Female'||!gen) 
+  else if(gender==='Male'||gender==='Female'||!gender) 
   {
     users[userIndex].name=(name)?name:users[userIndex].name;
-    users[userIndex].gender=(gen)?gen:users[userIndex].gender;
+    users[userIndex].gender=(gender)?gender:users[userIndex].gender;
     users[userIndex].bio=(bio)?bio:users[userIndex].bio;
     return res.json(users[userIndex]);
   }
   else {
     // console.log(gen)
-    return res.status(400).send("Incorrect entry in gender field");
+    return res.status(400).send("Incorrect entry, try again.");
   }
 });
 
